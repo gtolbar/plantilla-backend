@@ -12,6 +12,6 @@ public interface IGenericServicePort<T,ID> {
 
     void updateModel(T model);
 
-    void deleteModel(ID model);
+    void deleteModel(ID id);
 
 }
