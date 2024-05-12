@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface IPersonaRespository extends JpaRepository<PersonaEntity,Long> {
 
-    Optional<PersonaEntity> findByNumber(Long id); // opcional si esta en base de datos sin sacar null
+    //Optional<PersonaEntity> findByNumber(Long id); // opcional si esta en base de datos sin sacar null
 
 }

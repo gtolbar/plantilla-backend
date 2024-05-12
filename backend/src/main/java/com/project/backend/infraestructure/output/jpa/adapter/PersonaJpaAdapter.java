@@ -20,7 +20,7 @@ public class PersonaJpaAdapter implements IPersonaPersistenePort {
 
     @Override
     public void saveModel(Persona model) {
-        if (personaRespository.findByNumber(model.getId()).isPresent()){
+        if (personaRespository.findById(model.getId()).isPresent()){
             throw new PersonaAlreadyExistsException();
         }
         personaRespository.save(personaEntityMapper.toEntity(model));
@@ -37,7 +37,7 @@ public class PersonaJpaAdapter implements IPersonaPersistenePort {
 
     @Override
     public Persona getModel(Long id) {
-        return personaEntityMapper.toPersona(personaRespository.findByNumber(id).orElseThrow(PersonaNotFoundException::new));
+        return personaEntityMapper.toPersona(personaRespository.findById(id).orElseThrow(PersonaNotFoundException::new));
     }
 
     @Override
