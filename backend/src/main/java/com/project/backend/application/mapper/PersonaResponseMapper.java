@@ -16,7 +16,7 @@ import java.util.List;
         unmappedSourcePolicy = ReportingPolicy.IGNORE )
 public interface PersonaResponseMapper {
 
-    @Mapping(target = "nombreCompleto", qualifiedByName = "concatenateNames")
+    @Mapping(target = "nombreCompleto", qualifiedByName = "concatenateNames",ignore = true)
     PersonaResponse toResponse(Persona persona);
 
     @Named("concatenateNames")
