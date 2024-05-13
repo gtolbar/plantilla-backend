@@ -36,13 +36,13 @@ public class PersonaRestController {
     @PutMapping("/")
     public ResponseEntity<Void> updatePersonaIn(@RequestBody PersonaRequest personaRequest){
         personaHandler.updateModelIn(personaRequest);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{number}")
     public ResponseEntity<Void> deletePersonasIn(@PathVariable(name = "number") Long id){
         personaHandler.deleteModelFrom(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
 }
