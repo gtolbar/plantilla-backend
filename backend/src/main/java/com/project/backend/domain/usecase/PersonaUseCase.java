@@ -26,7 +26,10 @@ public class PersonaUseCase implements IPersonaServicePort {
 
     @Override
     public Persona getModel(Long id) {
-        return personaPersistenePort.getModel(id);
+        Persona persona = personaPersistenePort.getModel(id);
+        persona.setNombre(persona.getNombre().toUpperCase());
+        persona.setApellido(persona.getApellido().toUpperCase());
+        return persona;
     }
 
     @Override
