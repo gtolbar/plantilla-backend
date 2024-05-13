@@ -26,6 +26,7 @@ public class PersonaUseCase implements IPersonaServicePort {
 
     @Override
     public Persona getModel(Long id) {
+        // ################ La logica de negocio debe ir en los casos de uso ###############
         Persona persona = personaPersistenePort.getModel(id);
         persona.setNombre(persona.getNombre().toUpperCase());
         persona.setApellido(persona.getApellido().toUpperCase());
