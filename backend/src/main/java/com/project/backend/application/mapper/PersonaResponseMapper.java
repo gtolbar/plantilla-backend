@@ -16,14 +16,15 @@ import java.util.List;
         unmappedSourcePolicy = ReportingPolicy.IGNORE )
 public interface PersonaResponseMapper {
 
-    @Mapping(target = "nombreCompleto", expression = "java(persona.getNombre() + ' ' + persona.getApellido())")
+    //@Mapping(target = "nombreCompleto", expression = "java(persona.getNombre() + ' ' + persona.getApellido())")
+    @Mapping(target = "nombreCompleto", qualifiedByName = "concatNames", source = "persona")
     PersonaResponse toResponse(Persona persona);
 
-    /*
-    @Named("concatenateNames")
-    static String concatenateNames(Persona persona) {
+
+    @Named("concatNames")
+    static String concatNames(Persona persona) {
         return persona.getNombre() + " " + persona.getApellido();
-    }*/
+    }
 
     List<PersonaResponse> toResponseList(List<Persona> personas);
 
