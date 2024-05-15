@@ -2,14 +2,11 @@ package com.project.backend;
 
 
 import com.project.backend.domain.usecase.UseCaseUtils;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootTest
 class BackendApplicationTests {
