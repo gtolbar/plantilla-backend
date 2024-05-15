@@ -7,15 +7,18 @@ import com.project.backend.infraestructure.exception.PersonaNotFoundException;
 import com.project.backend.infraestructure.output.jpa.entity.PersonaEntity;
 import com.project.backend.infraestructure.output.jpa.mapper.PersonaEntityMapper;
 import com.project.backend.infraestructure.output.jpa.repository.IPersonaRespository;
-import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 public class PersonaJpaAdapter implements IPersonaPersistenePort {
 
     private final IPersonaRespository personaRespository;
     private final PersonaEntityMapper personaEntityMapper;
+
+    public PersonaJpaAdapter(IPersonaRespository personaRespository, PersonaEntityMapper personaEntityMapper) {
+        this.personaRespository = personaRespository;
+        this.personaEntityMapper = personaEntityMapper;
+    }
 
 
     @Override

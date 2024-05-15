@@ -6,16 +6,19 @@ import com.project.backend.domain.usecase.PersonaUseCase;
 import com.project.backend.infraestructure.output.jpa.adapter.PersonaJpaAdapter;
 import com.project.backend.infraestructure.output.jpa.mapper.PersonaEntityMapper;
 import com.project.backend.infraestructure.output.jpa.repository.IPersonaRespository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@RequiredArgsConstructor
 public class BeanConfiguration {
 
     private final IPersonaRespository personaRespository;
     private final PersonaEntityMapper personaEntityMapper;
+
+    public BeanConfiguration(IPersonaRespository personaRespository, PersonaEntityMapper personaEntityMapper) {
+        this.personaRespository = personaRespository;
+        this.personaEntityMapper = personaEntityMapper;
+    }
 
     @Bean
     public IPersonaPersistenePort personaPersistenePort(){

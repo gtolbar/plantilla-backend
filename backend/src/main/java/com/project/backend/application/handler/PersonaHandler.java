@@ -5,20 +5,24 @@ import com.project.backend.application.dto.PersonaResponse;
 import com.project.backend.application.mapper.PersonaRequestMapper;
 import com.project.backend.application.mapper.PersonaResponseMapper;
 import com.project.backend.domain.api.IPersonaServicePort;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 @Transactional //ACID principios
 public class PersonaHandler implements IPersonaHandler{
 
     private final IPersonaServicePort personaServicePort;
     private final PersonaRequestMapper personaRequestMapper;
     private final PersonaResponseMapper personaResponseMapper;
+
+    public PersonaHandler(IPersonaServicePort personaServicePort, PersonaRequestMapper personaRequestMapper, PersonaResponseMapper personaResponseMapper) {
+        this.personaServicePort = personaServicePort;
+        this.personaRequestMapper = personaRequestMapper;
+        this.personaResponseMapper = personaResponseMapper;
+    }
 
 
     @Override
